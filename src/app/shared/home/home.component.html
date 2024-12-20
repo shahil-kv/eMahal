@@ -1,10 +1,10 @@
 <!-- Hero -->
 <div class="bg-[url('./assets/images/ede.png')] bg-no-repeat bg-cover">
     <app-navbar></app-navbar>
-    <div class="container mx-auto px-2 md:px-4 pt-16 md:pt-24 pb-10 h-[calc(100vh-20rem)] md:h-[calc(100vh-18rem)]">
+    <div class="container mx-auto px-2 md:px-4 pt-16 md:pt-24 pb-10 h-[calc(100vh - 140rem)] md:h-[calc(100vh-25rem)]">
         <div class="container flex flex-col items-start justify-start gap-5">
             <!-- Title -->
-            <div class="max-w-2xl mt-5 leading-10 text-center md:text-left">
+            <div class="max-w-2xl mt-5 text-center md:text-left">
                 <h1 class="block text-4xl font-bold text-white md:text-5xl lg:text-6xl dark:text-neutral-200">
                     Taqwa Made your
                     <span
@@ -35,6 +35,14 @@
         </div>
         <!-- End Buttons -->
     </div>
+    <app-prayer-time class="relative top-16"></app-prayer-time>
 </div>
-<app-prayer-time></app-prayer-time>
+<div class="bg-[#FAFBFD] ">
+    <app-offerings></app-offerings>
+    <app-packages></app-packages>
+    <app-faq></app-faq>
+    <app-brand></app-brand>
+    <app-footer></app-footer>
+
+</div>
 <!-- End Hero -->
