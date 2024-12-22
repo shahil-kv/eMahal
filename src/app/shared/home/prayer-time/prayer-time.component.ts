@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-prayer-time',
   imports: [],
   templateUrl: './prayer-time.component.html',
-  styleUrl: './prayer-time.component.scss'
+  styleUrl: './prayer-time.component.scss',
 })
-export class PrayerTimeComponent {
-
-}
+export class PrayerTimeComponent {}

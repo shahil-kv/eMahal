@@ -8,9 +8,8 @@ describe('PrayerTimeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrayerTimeComponent]
-    })
-    .compileComponents();
+      imports: [PrayerTimeComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PrayerTimeComponent);
     component = fixture.componentInstance;
