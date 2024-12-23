@@ -1,11 +1,15 @@
 <div>
-    <p-galleria [value]="images" [autoPlay]="true" [circular]="true" [responsiveOptions]="responsiveOptions"
-        [numVisible]="5">
+
+
+    <p-galleria [shouldStopAutoplayByClick]="false" [showTransitionOptions]="'150ms cubic-bezier(0, 0, 0.2, 1)'"
+        [value]="images" [numVisible]="5" [autoPlay]="true" [circular]="true" [showItemNavigators]="true"
+        [showThumbnails]="false" [responsiveOptions]="responsiveOptions">
         <ng-template pTemplate="item" let-item>
-            <img class="w-full bg-center bg-no-repeat bg-cover h-96" [src]="item.itemImageSrc"
-                style="width: 100%; display: block" />
+            <img style="width: 100%; display: block" class="object-cover w-full bg-center bg-no-repeat bg-cover h-96"
+                [src]="item.itemImageSrc" />
         </ng-template>
     </p-galleria>
+
     <div class="container w-full px-4 m-auto md:px-0">
         <div class="flex justify-between my-10">
             <div>
@@ -16,11 +20,10 @@
                 <button>Add One Thing</button>
             </div>
         </div>
-        <div class="grid grid-cols-1 gap-10 px-4 md:px-0 sm:grid-cols-2 md:grid-cols-4 ">
+        <div class="grid grid-cols-1 gap-10 px-4 md:px-0 md:grid-cols-2 lg:grid-cols-4 ">
             @for (item of cards; track $index) {
 
-            <div
-                class="flex flex-col h-full bg-white border border-gray-200 shadow-sm group rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+            <div class="flex flex-col h-full bg-white border border-gray-200 shadow-sm group rounded-xl">
                 <div class="flex flex-col items-center justify-center bg-blue-600 h-52 rounded-t-xl">
                     <svg class="size-28" width="56" height="56" viewBox="0 0 56 56" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +47,7 @@
                     <span class="block mb-1 text-xs font-semibold text-blue-600 uppercase dark:text-blue-500">
                         Atlassian API
                     </span>
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:hover:text-white">
+                    <h3 class="text-xl font-semibold dark:text-neutral-300 dark:hover:text-white">
                         Atlassian
                     </h3>
                     <p class="mt-3 text-gray-500 dark:text-neutral-500">
@@ -54,7 +57,7 @@
                 </div>
                 <div
                     class="flex mt-auto border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
-                    <a class="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-gray-800 bg-white shadow-sm gap-x-2 rounded-ee-xl hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    <a class="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-gray-800 bg-white shadow-sm gap-x-2 rounded-ee-xl hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                         href="#">
                         {{item.title}}
                     </a>
