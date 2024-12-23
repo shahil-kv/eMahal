@@ -9,9 +9,15 @@ import { SigninComponent } from '../../../web-app/signin/signin.component';
 })
 export class NavbarComponent implements OnInit {
   protected isLoginPopupOpen = false;
-  constructor() {}
+  protected isMenuOpen = false;
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   login() {
     this.isLoginPopupOpen = true;

@@ -1,0 +1,66 @@
+<div>
+    <div class="bg-black">
+        <app-navbar></app-navbar>
+    </div>
+    <p-galleria [shouldStopAutoplayByClick]="false" [showTransitionOptions]="'150ms cubic-bezier(0, 0, 0.2, 1)'"
+        [value]="images" [numVisible]="5" [autoPlay]="true" [circular]="true" [showItemNavigators]="true"
+        [showThumbnails]="false" [responsiveOptions]="responsiveOptions">
+        <ng-template pTemplate="item" let-item>
+            <img class="object-cover w-full bg-center bg-no-repeat bg-cover h-96" [src]="item.itemImageSrc" />
+        </ng-template>
+    </p-galleria>
+
+    <div class="container w-full px-4 m-auto md:px-0">
+        <div class="flex justify-between my-10">
+            <div>
+                <h1>Please Enter Your Family Details</h1>
+            </div>
+            <div class="flex gap-2 md:gap-5">
+                <button class="bg-green-300 btn">Add One</button>
+                <button class="bg-yellow-200 btn">Add One Thing</button>
+            </div>
+        </div>
+
+
+
+        <div class="grid grid-cols-1 gap-10 mb-5 md:px-0 md:grid-cols-2 lg:grid-cols-4 md:mb-10 ">
+            @for (item of cards; track $index) {
+
+            <div class=" card">
+                <div class="card-body">
+                    <div class="flex justify-between">
+
+                        <h5 class="card-title">Card title</h5>
+                        <div data-dropdown>
+                            <button class="bg-yellow-300 btn" type="button">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+
+                            <ul class="dropdown-menu" data-show="false">
+                                <li>
+                                    <a class="dropdown-item" (click)="editCard(item)">
+                                        <i class="fa-solid fa-pen me-2"></i>
+                                        View/Edit
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item">
+                                        <i class="fa-solid fa-certificate me-2"></i>
+                                        Initiate Certificate
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h6 class="mb-2 card-subtitle text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>
+</div>

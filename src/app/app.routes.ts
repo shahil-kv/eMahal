@@ -1,25 +1,24 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './web-app/dashboard/dashboard.component';
+import { DashboardFamilyComponent } from './web-app/dashboard-family/dashboard-family.component';
+import { HomeComponent } from './shared/home/home.component';
+import { DashboardCommiteComponent } from './web-app/dashboard-commite/dashboard-commite.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
-    children: [
-      // {
-      //   path: '',
-      //   component: HomeComponent,
-      //   pathMatch: 'full',
-      // },
-      // {
-      //   path: 'dashboard',
-      //   component: DashboardComponent,
-      // },
-      //   {
-      //     path:'**',
-      //     pathMatch:'full',
-      //     component:PageNotFoundComponent
-      //   }
-    ],
+    pathMatch: 'full',
+    component: DashboardFamilyComponent,
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'dashboard-family',
+    component: DashboardFamilyComponent,
+  },
+  {
+    path: 'dashboard-commite',
+    component: DashboardCommiteComponent,
   },
 ];
