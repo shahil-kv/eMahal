@@ -9,8 +9,11 @@ import { provideRouter, withComponentInputBinding, withHashLocation } from '@ang
 import Aura from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 import { routes } from './app.routes';
+import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpRequestInterceptor } from './@core/HttpInterceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
     provideRouter(routes, withHashLocation()),
     provideAnimationsAsync(),
     provideExperimentalZonelessChangeDetection(),
@@ -21,6 +24,8 @@ export const appConfig: ApplicationConfig = {
           darkModeSelector: false || 'none',
         },
       },
+
     }),
+    HttpRequestInterceptor,
   ],
 };
