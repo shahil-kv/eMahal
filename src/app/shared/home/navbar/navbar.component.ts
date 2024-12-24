@@ -1,7 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Dialog } from 'primeng/dialog';
 import { SigninComponent } from '../../../web-app/signin/signin.component';
-import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-navbar',
   imports: [Dialog, SigninComponent],
@@ -11,14 +11,15 @@ import { HttpClient } from '@angular/common/http';
 export class NavbarComponent implements OnInit {
   protected isLoginPopupOpen = false;
   protected isMenuOpen = false;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get('https://jsonplaceholder.typicode.com/posts/1').subscribe(data => {
-      console.log(data);
-    });
+    this.http
+      .get('https://jsonplaceholder.typicode.com/posts/1')
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
-
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

@@ -1,19 +1,24 @@
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import {
   ApplicationConfig,
   provideExperimentalZonelessChangeDetection,
 } from '@angular/core';
-import * as echarts from 'echarts/core';
-import { provideEchartsCore } from 'ngx-echarts';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideRouter, withComponentInputBinding, withHashLocation } from '@angular/router';
+import { provideRouter, withHashLocation } from '@angular/router';
 import Aura from '@primeng/themes/aura';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { providePrimeNG } from 'primeng/config';
-import { routes } from './app.routes';
-import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient } from '@angular/common/http';
 import { HttpRequestInterceptor } from './@core/HttpInterceptor';
+import { AppConfigService } from './@core/services/appConfig.service';
+import { CommonService } from './@core/services/common.service';
+import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(),
+    AppConfigService,
+    CommonService,
+    MessageService,
+    ConfirmationService,
     provideRouter(routes, withHashLocation()),
     provideAnimationsAsync(),
     provideExperimentalZonelessChangeDetection(),
@@ -24,8 +29,11 @@ export const appConfig: ApplicationConfig = {
           darkModeSelector: false || 'none',
         },
       },
-
     }),
-    HttpRequestInterceptor,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true,
+    },
   ],
 };

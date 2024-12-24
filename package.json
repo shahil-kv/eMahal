@@ -8,8 +8,7 @@
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "lint": "ng lint",
-        "format": "prettier --write .",
-        "postinstall": "npx rimraf@latest node_modules && npm dedupe"
+        "format": "prettier --write ."
     },
     "private": true,
     "dependencies": {

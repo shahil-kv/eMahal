@@ -1,11 +1,9 @@
-@if(loading){
-<div class="loading-container flex-content-center">
-    <div class="flex justify-center ">
-        <p-progress-spinner ariaLabel="loading" />
+@if (loading) {
+  <div class="loading-container flex-content-center">
+    <div class="flex justify-center">
+      <p-progress-spinner ariaLabel="loading" />
     </div>
-</div>
+  </div>
 }
-
-{{loading}}
 
 <router-outlet />

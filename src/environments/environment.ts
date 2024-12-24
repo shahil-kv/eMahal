@@ -26,6 +26,8 @@
 
 // console.log(environment.apiBaseUrl);
 // console.log(environment.environmentName);
+// "postinstall": "npx rimraf@latest node_modules && npm dedupe"
+
 
 export const environment = {
   apiBaseUrl: 'http://localhost:5000',

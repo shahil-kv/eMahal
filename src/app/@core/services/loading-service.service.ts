@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoadingServiceService {
   loadingSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -11,7 +11,7 @@ export class LoadingServiceService {
    */
   loadingMap: Map<string, boolean> = new Map<string, boolean>();
 
-  constructor() { }
+  constructor() {}
 
   /**
    * Sets the loadingSub property value based on the following:
@@ -24,7 +24,9 @@ export class LoadingServiceService {
    */
   setLoading(loading: boolean, url: string): void {
     if (!url) {
-      throw new Error('The request URL must be provided to the LoadingService.setLoading function');
+      throw new Error(
+        'The request URL must be provided to the LoadingService.setLoading function'
+      );
     }
     if (loading === true) {
       this.loadingMap.set(url, loading);

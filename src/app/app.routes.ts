@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { DashboardFamilyComponent } from './web-app/dashboard-family/dashboard-family.component';
 import { HomeComponent } from './shared/home/home.component';
 import { DashboardCommiteComponent } from './web-app/dashboard-commite/dashboard-commite.component';
+import { DashboardFamilyComponent } from './web-app/dashboard-family/dashboard-family.component';
 
 export const routes: Routes = [
   {

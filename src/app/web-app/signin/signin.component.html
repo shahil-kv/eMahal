@@ -1,6 +1,6 @@
 @if (false) {
   <div
-    class="bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700"
+    class="bg-white border border-gray-300 shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700"
   >
     <div class="p-4 sm:p-7">
       <div class="text-center">
@@ -10,19 +10,19 @@
       </div>
 
       <!-- Form -->
-      <form>
+      <form [formGroup]="signInForm" (ngSubmit)="ValidateLogin()">
         <div class="grid gap-y-4">
-          <!-- Form Group -->
           <div>
-            <label for="email" class="block mb-2 text-sm dark:text-white"
+            <label for="email-id" class="block mb-2 text-sm dark:text-white"
               >Email address</label
             >
             <div class="relative">
               <input
                 type="email"
-                id="email"
-                name="email"
-                class="block w-full px-4 py-3 text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                id="email-id"
+                name="email-id"
+                formControlName="email"
+                class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                 required
                 aria-describedby="email-error"
               />
@@ -63,12 +63,11 @@
             </div>
             <div class="relative">
               <input
-                type="password"
-                id="password"
-                name="password"
-                class="block w-full px-4 py-3 text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                required
-                aria-describedby="password-error"
+                type="password-id"
+                id="password-id"
+                name="password-id"
+                formControlName="password"
+                class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
               />
               <div
                 class="absolute inset-y-0 hidden pointer-events-none end-0 pe-3"
@@ -100,7 +99,7 @@
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
-                class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                class="shrink-0 mt-0.5 border border-gray-300 rounded text-blue-600 focus:ring-blue-500"
               />
             </div>
             <div class="ms-3">
@@ -120,7 +119,7 @@
         </div>
       </form>
       <div
-        class="flex items-center py-3 text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600"
+        class="flex items-center py-3 text-xs text-gray-400 uppercase border-gray-300 before:flex-1 before:border-t before:border before:me-6 after:flex-1 after:border-t after:border after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600"
       >
         Or
       </div>
@@ -128,7 +127,7 @@
       <div class="mt-5">
         <button
           type="button"
-          class="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+          class="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-gray-800 bg-white border border-gray-300 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
         >
           <i class="text-2xl text-green-400 fa-brands fa-whatsapp"></i>
           Sign in Whatsapp
@@ -149,7 +148,7 @@
   </div>
 } @else {
   <div
-    class="bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700"
+    class="bg-white border border-gray-300 shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700"
   >
     <div class="p-4 sm:p-7">
       <div class="text-center">
@@ -159,186 +158,276 @@
       </div>
 
       <div class="mt-5">
-        <!-- Form -->
-        <form>
+        <form [formGroup]="familyForm" (ngSubmit)="RegisterUser()">
+          {{ familyForm.valid }}
           <div class="grid gap-y-4">
-            <!-- Form Group -->
-            <div>
-              <label for="email" class="block mb-2 text-sm dark:text-white"
-                >Email address</label
-              >
-              <div class="relative">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="block w-full px-4 py-3 text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                  required
-                  aria-describedby="email-error"
-                />
-                <div
-                  class="absolute inset-y-0 hidden pointer-events-none end-0 pe-3"
-                >
-                  <svg
-                    class="text-red-500 size-5"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <p class="hidden mt-2 text-xs text-red-600" id="email-error">
-                Please include a valid email address so we can get back to you
-              </p>
-            </div>
-            <!-- End Form Group -->
-
-            <!-- Form Group -->
-            <div>
-              <label for="password" class="block mb-2 text-sm dark:text-white"
-                >Password</label
-              >
-              <div class="relative">
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  class="block w-full px-4 py-3 text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                  required
-                  aria-describedby="password-error"
-                />
-                <div
-                  class="absolute inset-y-0 hidden pointer-events-none end-0 pe-3"
-                >
-                  <svg
-                    class="text-red-500 size-5"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <p class="hidden mt-2 text-xs text-red-600" id="password-error">
-                8+ characters required
-              </p>
-            </div>
-            <!-- End Form Group -->
-
-            <!-- Form Group -->
+            <!-- Family Name -->
             <div>
               <label
-                for="confirm-password"
+                for="family-name"
                 class="block mb-2 text-sm dark:text-white"
-                >Confirm Password</label
+                >Family Name</label
               >
-              <div class="relative">
+              <div>
                 <input
-                  type="password"
-                  id="confirm-password"
-                  name="confirm-password"
-                  class="block w-full px-4 py-3 text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                  type="text"
+                  id="family-name"
+                  formControlName="familyName"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
                   required
-                  aria-describedby="confirm-password-error"
                 />
-                <div
-                  class="absolute inset-y-0 hidden pointer-events-none end-0 pe-3"
-                >
-                  <svg
-                    class="text-red-500 size-5"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
-                    />
-                  </svg>
+              </div>
+            </div>
+
+            <!-- House Name -->
+            <div>
+              <label for="house-name" class="block mb-2 text-sm dark:text-white"
+                >House Name</label
+              >
+              <div>
+                <input
+                  type="text"
+                  id="house-name"
+                  formControlName="houseName"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- House Number -->
+            <div>
+              <label
+                for="house-number"
+                class="block mb-2 text-sm dark:text-white"
+                >House Number</label
+              >
+              <div>
+                <input
+                  type="text"
+                  id="house-number"
+                  formControlName="houseNumber"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Area -->
+            <div>
+              <label for="area" class="block mb-2 text-sm dark:text-white"
+                >Area</label
+              >
+              <div>
+                <input
+                  type="text"
+                  id="area"
+                  formControlName="area"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div>
+              <label for="address" class="block mb-2 text-sm dark:text-white"
+                >Address</label
+              >
+              <div>
+                <textarea
+                  id="address"
+                  formControlName="address"
+                  rows="3"
+                  cols="50"
+                  autocomplete="off"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Post -->
+            <div>
+              <label for="post" class="block mb-2 text-sm dark:text-white"
+                >Post</label
+              >
+              <div>
+                <input
+                  type="text"
+                  id="post"
+                  formControlName="post"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Pin Code -->
+            <div>
+              <label for="pin" class="block mb-2 text-sm dark:text-white"
+                >Pin Code</label
+              >
+              <div>
+                <input
+                  type="number"
+                  id="pin"
+                  formControlName="pin"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- District -->
+            <div>
+              <label for="district" class="block mb-2 text-sm dark:text-white"
+                >District</label
+              >
+              <div>
+                <input
+                  type="text"
+                  id="district"
+                  formControlName="district"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Phone Number -->
+            <div>
+              <label
+                for="phone-number"
+                class="block mb-2 text-sm dark:text-white"
+                >Phone Number</label
+              >
+              <div>
+                <input
+                  type="text"
+                  id="phone-number"
+                  formControlName="phoneNumber"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Ward Number -->
+            <div>
+              <label for="ward-no" class="block mb-2 text-sm dark:text-white"
+                >Ward Number</label
+              >
+              <div>
+                <input
+                  type="text"
+                  id="ward-no"
+                  formControlName="wardNo"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Ration Card Type -->
+            <div>
+              <label
+                for="ration-card-type"
+                class="block mb-2 text-sm dark:text-white"
+                >Ration Card Type</label
+              >
+              <div>
+                <input
+                  type="text"
+                  id="ration-card-type"
+                  formControlName="rationCardType"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- House Age -->
+            <div>
+              <label for="house-age" class="block mb-2 text-sm dark:text-white"
+                >House Age</label
+              >
+              <div>
+                <input
+                  type="number"
+                  id="house-age"
+                  formControlName="houseAge"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Mahal Tenancy Age -->
+            <div>
+              <label
+                for="mahal-tenancy-age"
+                class="block mb-2 text-sm dark:text-white"
+                >Mahal Tenancy Age</label
+              >
+              <div>
+                <input
+                  type="number"
+                  id="mahal-tenancy-age"
+                  formControlName="mahalTenancyAge"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Own House -->
+            <div>
+              <div class="flex gap-3">
+                <div>
+                  <p-radiobutton
+                    inputId="no"
+                    [value]="1"
+                    formControlName="ownHouse"
+                  />
+                  <label for="no" class="ml-2">Yes</label>
+                </div>
+                <div>
+                  <p-radiobutton
+                    inputId="yes"
+                    [value]="0"
+                    formControlName="ownHouse"
+                  />
+                  <label for="yes" class="ml-2">No</label>
                 </div>
               </div>
-              <p
-                class="hidden mt-2 text-xs text-red-600"
-                id="confirm-password-error"
+            </div>
+
+            <!-- Remarks -->
+            <div>
+              <label for="remarks" class="block mb-2 text-sm dark:text-white"
+                >Remarks</label
               >
-                Password does not match the password
-              </p>
-            </div>
-            <!-- End Form Group -->
-
-            <!-- Checkbox -->
-            <div class="flex items-center">
-              <div class="flex">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                />
-              </div>
-              <div class="ms-3">
-                <label for="remember-me" class="text-sm dark:text-white"
-                  >I accept the
-                  <a
-                    class="font-medium text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline dark:text-blue-500"
-                    href="#"
-                    >Terms and Conditions</a
-                  ></label
-                >
+              <div>
+                <textarea
+                  id="remarks"
+                  formControlName="remarks"
+                  rows="3"
+                  cols="50"
+                  autocomplete="off"
+                  class="block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg"
+                ></textarea>
               </div>
             </div>
-            <!-- End Checkbox -->
 
+            <!-- Submit Button -->
             <button
               type="submit"
-              class="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+              class="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 focus:outline-none focus:bg-blue-700"
             >
-              Sign up
+              Submit
             </button>
           </div>
         </form>
-        <div
-          class="flex items-center py-3 text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600"
-        >
-          Or
-        </div>
-
-        <div class="mt-5">
-          <button
-            type="button"
-            class="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-          >
-            <i class="text-2xl text-green-400 fa-brands fa-whatsapp"></i>
-            Sign up Whatsapp
-          </button>
-
-          <p
-            class="mt-2 text-sm text-center text-gray-600 dark:text-neutral-400"
-          >
-            Already have an account?
-            <a
-              class="font-medium text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline dark:text-blue-500"
-              href="../examples/html/signup.html"
-            >
-              Sign up here
-            </a>
-          </p>
-          <!-- End Form -->
-        </div>
-
-        <!-- End Form -->
       </div>
     </div>
   </div>

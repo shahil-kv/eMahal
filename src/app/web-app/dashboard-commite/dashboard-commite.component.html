@@ -1,76 +1,72 @@
 <div>
-    <div class="bg-black">
-
-        <app-navbar></app-navbar>
+  <div class="bg-black">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="container w-full px-4 m-auto md:px-0">
+    <div class="flex flex-col justify-between gap-4 md:gap-10 xl:flex-row">
+      <div class="w-full mt-2 shadow-lg card h-72 xl:h-96 md:mt-10">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <div echarts class="h-52 xl:h-80" [options]="optionBar"></div>
+        </div>
+      </div>
+      <div class="w-full mt-2 shadow-lg card h-96 xl:h-96 md:mt-10">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <div echarts class="h-[23rem]" [options]="optionPie"></div>
+        </div>
+      </div>
     </div>
-    <div class="container w-full px-4 m-auto md:px-0">
 
-        <div class="flex flex-col justify-between gap-4 md:gap-10 xl:flex-row">
-            <div class="w-full mt-2 shadow-lg card h-72 xl:h-96 md:mt-10 ">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <div echarts class="h-52 xl:h-80" [options]="optionBar"></div>
-                </div>
-            </div>
-            <div class="w-full mt-2 shadow-lg card h-96 xl:h-96 md:mt-10 ">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <div echarts class="h-[23rem] " [options]="optionPie"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex justify-between my-10">
-            <div>
-                <h1>Please Enter Your Family Details</h1>
-            </div>
-            <div class="flex gap-2 md:gap-5">
-                <button class="bg-green-300 btn">Add One</button>
-                <button class="bg-yellow-200 btn">Add One Thing</button>
-            </div>
-        </div>
-
-
-
-        <div
-            class="grid justify-center grid-cols-1 gap-10 mb-5 md:justify-start md:px-0 md:grid-cols-2 lg:grid-cols-4 md:mb-10 ">
-            @for (item of cards; track $index) {
-
-            <div class=" card">
-                <div class="card-body">
-                    <div class="flex justify-between">
-
-                        <h5 class="card-title">Card title</h5>
-                        <div data-dropdown>
-                            <button class="bg-yellow-300 btn" type="button">
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
-                            </button>
-
-                            <ul class="dropdown-menu" data-show="false">
-                                <li>
-                                    <a class="dropdown-item">
-                                        <i class="fa-solid fa-pen me-2"></i>
-                                        View/Edit
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item">
-                                        <i class="fa-solid fa-certificate me-2"></i>
-                                        Initiate Certificate
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6 class="mb-2 card-subtitle text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            }
-
-        </div>
+    <div class="flex justify-between my-10">
+      <div>
+        <h1>Please Enter Your Family Details</h1>
+      </div>
+      <div class="flex gap-2 md:gap-5">
+        <button class="bg-green-300 btn">Add One</button>
+        <button class="bg-yellow-200 btn">Add One Thing</button>
+      </div>
     </div>
+
+    <div
+      class="grid justify-center grid-cols-1 gap-10 mb-5 md:justify-start md:px-0 md:grid-cols-2 lg:grid-cols-4 md:mb-10"
+    >
+      @for (item of cards; track $index) {
+        <div class="card">
+          <div class="card-body">
+            <div class="flex justify-between">
+              <h5 class="card-title">Card title</h5>
+              <div data-dropdown>
+                <button class="bg-yellow-300 btn" type="button">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+
+                <ul class="dropdown-menu" data-show="false">
+                  <li>
+                    <a class="dropdown-item">
+                      <i class="fa-solid fa-pen me-2"></i>
+                      View/Edit
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item">
+                      <i class="fa-solid fa-certificate me-2"></i>
+                      Initiate Certificate
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <h6 class="mb-2 card-subtitle text-muted">Card subtitle</h6>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
 </div>
